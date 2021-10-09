@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #101820ff;
+}
+
+h1 {
+  font-family: "Lobster", cursive;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 30px;
+  color: yellow;
+}
+
+.shapes {
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.shapes > div {
+  margin: auto;
+}
+
+#square {
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+}
+
+#rectangle {
+  width: 300px;
+  height: 200px;
+  background-color: yellow;
+}
+
+#triangle {
+  width: 0px;
+  height: 0px;
+  border-right: 150px solid transparent;
+  border-left: 150px solid transparent;
+  border-bottom: 150px solid yellow;
+}
+
+#circle {
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+  border-radius: 50%;
+}
+
+#pentagon {
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+#hexagon {
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+#heptagon {
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+  clip-path: polygon(
+    50% 0%,
+    90% 20%,
+    100% 60%,
+    75% 100%,
+    25% 100%,
+    0% 60%,
+    10% 20%
+  );
+}
+
+#octagon {
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+}
+
+#decagon {
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+  clip-path: polygon(
+    50% 0%,
+    80% 10%,
+    100% 35%,
+    100% 70%,
+    80% 90%,
+    50% 100%,
+    20% 90%,
+    0% 70%,
+    0% 35%,
+    20% 10%
+  );
+}
+
+#star {
+  position: relative;
+  display: block;
+  color: yellow;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-left: 100px solid transparent;
+  border-bottom: 70px solid yellow;
+}
+
+#star::before {
+  content: "";
+  border-bottom: 80px solid yellow;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -45px;
+  left: -65px;
+  display: block;
+  transform: rotate(-35deg);
+}
+
+#star::after {
+  content: "";
+  border-bottom: 70px solid yellow;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: 3px;
+  left: -105px;
+  display: block;
+  transform: rotate(-70deg);
+}
+
+#oval {
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+  clip-path: ellipse(50% 33% at 50% 50%);
+}
+
+#cone {
+  width: 0;
+  height: 0;
+  border-left: 110px solid transparent;
+  border-right: 110px solid transparent;
+  border-top: 150px solid yellow;
+  border-radius: 50%;
+}
+
+#pyramid {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin-top: -40px;
+}
+
+#pyramid::before,
+#pyramid::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 50px solid;
+  position: absolute;
+}
+
+#pyramid::before {
+  border-color: transparent transparent yellow transparent;
+  transform: scaleY(2) skewY(-40deg) rotate(45deg);
+}
+
+#pyramid::after {
+  border-color: transparent transparent #ffbe7bff transparent;
+  transform: scaleY(2) skewY(40deg) rotate(-45deg);
+}
+
+#kite {
+  width: 150px;
+  height: 150px;
+  background-color: yellow;
+  transform: skew(180deg, 180deg) rotate(45deg);
+}
+
+@media only screen and (max-width: 700px) {
+  .shapes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .shapes {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+
+  .shapes > div {
+    justify-self: center;
+  }
+
+  #star {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+
+  #pyramid {
+    margin-bottom: 130px;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .shapes {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
